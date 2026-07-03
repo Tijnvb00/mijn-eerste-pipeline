@@ -2,7 +2,7 @@ const ejs = require('ejs');
 const fs = require('fs');
 
 const data = {
-  naam: 'Tijn',
+  naam: 'Tijn in de trein wohooo',
   datum: new Date().toLocaleDateString('nl-NL')
 };
 
