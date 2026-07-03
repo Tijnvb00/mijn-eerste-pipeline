@@ -11,6 +11,7 @@ ejs.renderFile('template.ejs', data, (err, html) => {
     console.error(err);
     return;
   }
-  fs.writeFileSync('index.html', html);
-  console.log('Gebouwd! Fakkaaaaa');
+  fs.mkdirSync('dist', { recursive: true });
+  fs.writeFileSync('dist/index.html', html);
+  console.log('Gebouwd!');
 });

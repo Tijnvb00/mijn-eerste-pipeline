@@ -1,0 +1,37 @@
+
+name: Pipeline
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Haal de code op
+        uses: actions/checkout@v4
+
+      - name: Zet Node.js klaar
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installeer packages
+        run: npm install
+
+      - name: Bouw de site
+        run: node build.js
+
+      - name: Upload het resultaat
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: Zet live op GitHub Pages
+        uses: actions/deploy-pages@v4
