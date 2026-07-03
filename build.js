@@ -13,5 +13,5 @@ ejs.renderFile('template.ejs', data, (err, html) => {
   }
   fs.mkdirSync('dist', { recursive: true });
   fs.writeFileSync('dist/index.html', html);
-  console.log('Gebouwd!');
+  console.log('Gebouwd!', 'Tijn in de trein wohooooooo');
 });
